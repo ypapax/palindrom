@@ -4,7 +4,7 @@ import (
 	"unicode"
 )
 
-func IsPolindrom(str []rune) bool {
+func Check(str []rune) bool {
 	i := 0
 	j := len(str) - 1
 	for {

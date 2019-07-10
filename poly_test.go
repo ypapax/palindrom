@@ -22,7 +22,7 @@ func TestPoly(t *testing.T) {
 	} {
 		t.Run(c.inp, func(t *testing.T) {
 			as := assert.New(t)
-			act := polindrom.IsPolindrom([]rune(c.inp))
+			act := polindrom.Check([]rune(c.inp))
 			if !as.Equal(c.exp, act) {
 				return
 			}
