@@ -8,34 +8,24 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPoly1(t *testing.T) {
-	as := assert.New(t)
-	act := polindrom.IsPolindrom([]rune("Казак"))
-	if !as.Equal(true, act) {
-		return
+func TestPoly(t *testing.T) {
+	type testCase struct {
+		inp string
+		exp bool
 	}
-}
-
-func TestPoly2(t *testing.T) {
-	as := assert.New(t)
-	act := polindrom.IsPolindrom([]rune("А роза упала на лапу Азора"))
-	if !as.Equal(true, act) {
-		return
-	}
-}
-
-func TestPoly3(t *testing.T) {
-	as := assert.New(t)
-	act := polindrom.IsPolindrom([]rune("Do geese see God?"))
-	if !as.Equal(true, act) {
-		return
-	}
-}
-
-func TestPoly4(t *testing.T) {
-	as := assert.New(t)
-	act := polindrom.IsPolindrom([]rune("Madam, I’m Adam"))
-	if !as.Equal(true, act) {
-		return
+	for _, c := range []testCase{
+		{inp: "Казак", exp: true},
+		{inp: "А роза упала на лапу Азора", exp: true},
+		{inp: "Do geese see God?", exp: true},
+		{inp: "Madam, I’m Adam", exp: true},
+		{inp: "done", exp: false},
+	} {
+		t.Run(c.inp, func(t *testing.T) {
+			as := assert.New(t)
+			act := polindrom.IsPolindrom([]rune(c.inp))
+			if !as.Equal(c.exp, act) {
+				return
+			}
+		})
 	}
 }
