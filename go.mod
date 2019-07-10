@@ -1,4 +1,4 @@
-module github.com/ypapax/polindrom
+module github.com/ypapax/palindrom
 
 go 1.12
 

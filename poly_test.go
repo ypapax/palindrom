@@ -1,14 +1,13 @@
-package polindrom_test
+package palindrom_test
 
 import (
 	"testing"
 
-	"github.com/ypapax/polindrom"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/ypapax/palindrom"
 )
 
-func TestPoly(t *testing.T) {
+func TestCheck(t *testing.T) {
 	type testCase struct {
 		inp string
 		exp bool
@@ -22,7 +21,7 @@ func TestPoly(t *testing.T) {
 	} {
 		t.Run(c.inp, func(t *testing.T) {
 			as := assert.New(t)
-			act := polindrom.Check([]rune(c.inp))
+			act := palindrom.Check([]rune(c.inp))
 			if !as.Equal(c.exp, act) {
 				return
 			}

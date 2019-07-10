@@ -1,4 +1,4 @@
-package polindrom
+package palindrom
 
 import (
 	"unicode"
